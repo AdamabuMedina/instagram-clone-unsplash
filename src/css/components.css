@@ -1,0 +1,171 @@
+.main-container {
+  text-align: center;
+  margin: 100px;
+  max-width: 1760px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.header {
+  background: gray;
+  padding: 1rem;
+}
+
+.header .menu {
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.header li {
+  list-style: none;
+}
+
+.menu-logo a {
+  letter-spacing: 10px;
+  font-size: 28px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #fff;
+  line-height: 28px;
+}
+
+.menu-logo::first-letter {
+  color: #d6d6d6;
+}
+
+.header a:hover,
+.header a:focus {
+  color: #d6d6d6;
+}
+
+.menu-auth {
+  position: absolute;
+  right: 20px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/* PhotoDetails */
+
+.back-link {
+  display: block;
+  margin-left: 24px;
+  margin-top: 24px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.details-container--info .author,
+.details-container--info .btn-like {
+  position: relative;
+  right: auto;
+  left: auto;
+  bottom: auto;
+}
+
+.details-container--img {
+  margin: 0 auto 20px;
+  display: table;
+  max-width: 100%;
+}
+
+.details-container--info {
+  position: relative;
+  margin: 40px auto 20px;
+  padding: 32px 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1080px;
+}
+
+.details-container--info .date {
+  top: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.details-container--date {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+/* PhotoList */
+.list-photos__item {
+  margin: 20px;
+  display: flex;
+  width: calc(25% - 40px);
+  overflow: hidden;
+}
+
+.list-photos__item--img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.list-photos__item:hover .list-photos__item--stats,
+.list-photos__item:focus .list-photos__item--stats {
+  opacity: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset black 0 0 1000px 0;
+}
+
+.list-photos__item--stats {
+  opacity: 0;
+  position: absolute;
+  transition: all 0.9s;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.author {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.author-img {
+  margin-right: 8px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.author-name {
+  color: #b8fff8;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.date {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.photo-detail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}

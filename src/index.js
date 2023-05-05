@@ -1,17 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react"
+import ReactDOM from "react-dom"
+import { createStore, applyMiddleware } from "redux"
+import { Provider } from "react-redux"
+import { Router } from "react-router-dom"
+import { routerMiddleware } from "react-router-redux"
+import App from "./containers/App.js"
+import reducers from "./reducers/reducers.js"
+import { setAccessTokenUnplash } from "./unsplash/unsplash.js"
+import { createBrowserHistory } from "history"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min"
+import "./css/button.css"
+import "./css/components.css"
+import "./css/App.css"
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const initialState = []
+
+const history = createBrowserHistory()
+const middleware = routerMiddleware(history)
+
+export const store = createStore(
+  reducers,
+  initialState,
+  applyMiddleware(middleware)
+)
+
+const code = window.location.search.split("code=")[1]
+
+if (code) {
+  setAccessTokenUnplash(code)
+  history.push("/photos")
+}
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById("root")
+)
